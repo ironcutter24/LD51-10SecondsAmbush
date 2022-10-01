@@ -15,11 +15,11 @@ TagManager:
   - 
   - 
   - 
-  - Player
+  - 
   - Walls
   - Bullets
   - Trees
-  - 
+  - HitBoxes
   - 
   - 
   - 

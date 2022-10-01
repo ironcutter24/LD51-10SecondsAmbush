@@ -9,11 +9,11 @@ public class WorldBounds : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Bounds collision");
+        //Debug.Log("Bounds collision");
 
         var colliders = Physics2D.OverlapCircleAll(collision.GetContact(0).point, 2f, treesMask);
 
-        Debug.Log("Colls: " + colliders.Length);
+        //Debug.Log("Colls: " + colliders.Length);
 
         foreach (var c in colliders)
         {

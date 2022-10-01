@@ -15,6 +15,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 970264a06bfe79149adf1862ea0e9ac8, type: 2}
+    - target: {fileID: 1181747722369936480, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.85534555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181747722369936480, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inSlope
+      value: -2.4562569
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181747722369936480, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
+      value: -2.4562569
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181747722369936480, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
+      value: 0.09217877
+      objectReference: {fileID: 0}
     - target: {fileID: 7754733991680583840, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public static CharacterController Instance;
+
     [SerializeField] Animator anim;
     [SerializeField] float moveSpeed = 20f;
 
     Vector2 moveDirection = Vector2.zero;
     Vector2 lookDirection = Vector2.right;
 
-
-    public static CharacterController Instance;
-
     Rigidbody2D rb;
+
 
     private void Awake()
     {
