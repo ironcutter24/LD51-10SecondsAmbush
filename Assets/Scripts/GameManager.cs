@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static event Action OnCounterExpired = () => { };
 
-    [SerializeField] TMPro.TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] TMPro.TextMeshProUGUI countUI;
+    [SerializeField] TMPro.TextMeshProUGUI roundUI;
 
     void Start()
     {
@@ -21,21 +22,25 @@ public class GameManager : MonoBehaviour
     }
 
     int count;
+    int round = 1;
     IEnumerator _Counter()
     {
         while (gameObject != null)
         {
+            roundUI.text = "Round " + round.ToString();
+
             count = 10;
-            textMeshProUGUI.text = count.ToString();
+            countUI.text = count.ToString();
 
             while (count > 0)
             {
                 yield return new WaitForSeconds(1f);
                 count--;
-                textMeshProUGUI.text = count.ToString();
+                countUI.text = count.ToString();
             }
 
             OnCounterExpired();
+            round++;
         }
     }
 }

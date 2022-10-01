@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 834188970521394492, guid: efa390034732af24da996cec0ae45f16, type: 3}
+      propertyPath: _shakeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1817942977251287481, guid: efa390034732af24da996cec0ae45f16, type: 3}
       propertyPath: m_Name
       value: Bush 2 Yellow Variant

@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 2198508427664455678, guid: 3fde6ae4123503849b8a9907e5fe8694, type: 3}
+      propertyPath: _shakeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6074316069181604061, guid: 3fde6ae4123503849b8a9907e5fe8694, type: 3}
       propertyPath: m_Layer
       value: 13

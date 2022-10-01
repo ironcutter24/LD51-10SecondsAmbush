@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject normalBulletPrefab;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class BulletSpawner : MonoBehaviour
             Vector2 dir = CharacterController.Instance.transform.position - transform.position;
             dir.Normalize();
 
-            var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity).GetComponent<Bullet>();
+            var bullet = Instantiate(normalBulletPrefab, transform.position, Quaternion.identity).GetComponent<Bullet>();
             bullet.SetDirection(dir);
         }
     }

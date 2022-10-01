@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 4400452083304315144, guid: ccdc3bc58855c2c44882a778a588f4f2, type: 3}
+      propertyPath: _shakeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5167058293991241389, guid: ccdc3bc58855c2c44882a778a588f4f2, type: 3}
       propertyPath: m_Layer
       value: 13
