@@ -157,7 +157,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8809659137612256941}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -215,4 +215,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3778380417271691611, guid: 410855556baf79d43a620f9325aec8f5, type: 3}
+  bulletMat: {fileID: 0}
   shootVFX: {fileID: 1739958990}

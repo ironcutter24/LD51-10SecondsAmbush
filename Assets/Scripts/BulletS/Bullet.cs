@@ -7,12 +7,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float moveSpeed;
 
-    private void OnEnable()
+    private void Start()
     {
         GameManager.OnCounterExpired += DestroyBullet;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         GameManager.OnCounterExpired -= DestroyBullet;
     }

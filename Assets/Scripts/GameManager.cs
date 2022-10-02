@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility.Patterns;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public static event Action OnCounterExpired = () => { };
+    public static event Action<int> OnRoundPassed = (x) => { };
 
     [SerializeField] TMPro.TextMeshProUGUI countUI;
     [SerializeField] TMPro.TextMeshProUGUI roundUI;
@@ -21,12 +23,17 @@ public class GameManager : MonoBehaviour
             Application.Quit();
     }
 
+    public int CurrentRound { get => round; }
+
     int count;
-    int round = 1;
+    int round = 0;
     IEnumerator _Counter()
     {
         while (gameObject != null)
         {
+            round++;
+            OnRoundPassed(round);
+
             roundUI.text = "Round " + round.ToString();
 
             count = 10;
@@ -40,7 +47,6 @@ public class GameManager : MonoBehaviour
             }
 
             OnCounterExpired();
-            round++;
         }
     }
 }

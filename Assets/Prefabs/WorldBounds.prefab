@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7513007516520568168}
   - component: {fileID: 7513007516520568174}
   - component: {fileID: 7513007516520568169}
+  - component: {fileID: 945488136209872159}
+  - component: {fileID: 4387267742515943536}
   m_Layer: 11
   m_Name: WorldBounds
   m_TagString: Untagged
@@ -67,8 +69,8 @@ PolygonCollider2D:
       - {x: -2.8967383, y: 9.971841}
       - {x: -20.061481, y: 9.964809}
       - {x: -20.020067, y: -9.941787}
-      - {x: -4.0120263, y: -9.965881}
-      - {x: -4.0189176, y: -6.9794326}
+      - {x: -3.285097, y: -9.965881}
+      - {x: -3.291988, y: -6.898662}
     - - {x: 2.106128, y: 10.071235}
       - {x: 2.1186516, y: 4.7960167}
       - {x: 10.759262, y: 4.1397767}
@@ -94,3 +96,87 @@ MonoBehaviour:
   treesMask:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &945488136209872159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513007516520568170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -13.734579, y: 3.8024437, z: 0}
+      - {x: -15.715233, y: 0.8771713, z: 0}
+      - {x: -12.498156, y: -5.376952, z: 0}
+      - {x: -10.964734, y: -6.595826, z: 0}
+      - {x: -9.19385, y: -8.003452, z: 0}
+      - {x: 5.8465805, y: -10.383124, z: 0}
+      - {x: 12.10217, y: -6.6866407, z: 0}
+      - {x: 14.10009, y: -5.506052, z: 0}
+      - {x: 15.380747, y: 2.511334, z: 0}
+      - {x: 12.420021, y: 5.5279207, z: 0}
+      - {x: 10.013433, y: 7.9799147, z: 0}
+      - {x: -10.783105, y: 8.161544, z: 0}
+      isClosed: 1
+      space: 1
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 2, y: 0.14433756, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 0
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!114 &4387267742515943536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513007516520568170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79cce5184805b9149ab7ac5726802979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 945488136209872159}
+  EnemyPrefabs:
+  - {fileID: 2805748759246436029, guid: 15ae9340677244b4e859f7faed27ac75, type: 3}
+  - {fileID: 5324778733004312393, guid: faa5331402810b346a161ff63b65a59f, type: 3}
+  - {fileID: 8633627929426770008, guid: a87449da39855fc47b6bb3da55a83520, type: 3}
+  roundData:
+  - {fileID: 11400000, guid: 1d2cc9923672ef947b8b754643893493, type: 2}
+  - {fileID: 11400000, guid: 311d47c086abb1a49884b441360c7a4e, type: 2}
+  - {fileID: 11400000, guid: ffbd4253370af8843911fa3eb2e5b513, type: 2}
