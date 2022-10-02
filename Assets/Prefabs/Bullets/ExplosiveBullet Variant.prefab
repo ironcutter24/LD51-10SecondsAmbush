@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b89736fc1217af64eba24f174663ddc5, type: 2}
     - target: {fileID: 7754733991680583841, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7754733991680583843, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
       propertyPath: m_RootOrder
@@ -65,3 +65,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+--- !u!1 &6583575631008899146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7754733991680583870, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+  m_PrefabInstance: {fileID: 3513887829533952244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3505123711193294678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583575631008899146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45efb6442b0a9b4480f4c4939ae194e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childBulletsPrefab: {fileID: 787833960846398385, guid: 3b4fc60b01d872049a85c07c8dc6fc6a, type: 3}
+  spread: 60

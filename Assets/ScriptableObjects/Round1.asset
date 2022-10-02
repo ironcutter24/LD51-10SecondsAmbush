@@ -23,11 +23,13 @@ MonoBehaviour:
     SerializationNodes: []
   attackList:
   - waitTime: 2
+    bulletType: 4
+  - waitTime: 1
+    bulletType: 0
+  - waitTime: 1
+    bulletType: 0
+  - waitTime: 2
     bulletType: 3
-  - waitTime: 1
-    bulletType: 0
-  - waitTime: 1
-    bulletType: 0
   - waitTime: 2
     bulletType: 0
   - waitTime: 2

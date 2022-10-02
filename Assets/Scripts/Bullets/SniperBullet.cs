@@ -9,7 +9,7 @@ public class SniperBullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         bounces++;
-        Debug.Log(bounces);
+        //Debug.Log(bounces);
 
         if (bounces > 3)
             Destroy(gameObject);

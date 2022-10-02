@@ -27,6 +27,11 @@ public class Bullet : MonoBehaviour
         rb.velocity = moveDirection * moveSpeed;
     }
 
+    public void EnableCollider()
+    {
+        GetComponent<Collider2D>().enabled = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Walls"))
