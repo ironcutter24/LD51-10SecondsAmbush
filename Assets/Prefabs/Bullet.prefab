@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7542070513883635251}
   - component: {fileID: 6340481854336124662}
   m_Layer: 12
-  m_Name: Shadow
+  m_Name: ShadowGfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7754733991680583843}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6340481854336124662
 SpriteRenderer:
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8822582196697773194}
   - component: {fileID: 2558909984061681775}
   m_Layer: 12
-  m_Name: Gfx
+  m_Name: BulletGfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d23ae9a435f842f44baeddaee53727bb, type: 2}
+  - {fileID: 2100000, guid: 8b1d17a1bd419c04880c2a8d8b41cdf0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,8 +309,8 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 217701815212876236}
-  - {fileID: 6410090071396862281}
   - {fileID: 7542070513883635251}
+  - {fileID: 6410090071396862281}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,6 +374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6728496453349233946}
+  col: {fileID: 6708245548264154042}
+  bulletGfx: {fileID: 217701815212876236}
+  shadowGfx: {fileID: 7542070513883635251}
   moveSpeed: 12
 --- !u!1 &8534003094536156866
 GameObject:
@@ -406,7 +409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7754733991680583843}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6838374264501684507
 BoxCollider2D:
