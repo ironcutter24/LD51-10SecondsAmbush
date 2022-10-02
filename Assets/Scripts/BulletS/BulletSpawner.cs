@@ -9,6 +9,9 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] Material bulletMat;
     [SerializeField] GameObject shootVFX;
 
+    [SerializeField] float flashStart = .2f;
+    float flashEnd = .2f;
+
     void Start()
     {
         shootVFX.transform.localScale = Vector3.zero;
@@ -18,18 +21,17 @@ public class BulletSpawner : MonoBehaviour
 
     IEnumerator _SpawnBullets()
     {
-        const float flashDuration = .2f;
         shootVFX.transform.localScale = Vector3.zero;
-        shootVFX.transform.DOScale(Vector3.one * 3f, flashDuration);
-        yield return new WaitForSeconds(flashDuration);
+        shootVFX.transform.DOScale(Vector3.one * 3f, flashStart);
+        yield return new WaitForSeconds(flashStart);
 
         Vector2 dir = CharacterController.Instance.transform.position - transform.position;
         dir.Normalize();
         var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity).GetComponent<Bullet>();
         bullet.SetDirection(dir);
 
-        shootVFX.transform.DOScale(Vector3.zero, flashDuration);
-        yield return new WaitForSeconds(flashDuration);
+        shootVFX.transform.DOScale(Vector3.zero, flashEnd);
+        yield return new WaitForSeconds(flashEnd);
 
         Destroy(gameObject);
     }

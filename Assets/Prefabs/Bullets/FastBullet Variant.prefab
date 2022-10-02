@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7a13367e1bb78644b9b50bff336ad82f, type: 2}
+    - target: {fileID: 2558909984061681775, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a13367e1bb78644b9b50bff336ad82f, type: 2}
     - target: {fileID: 7754733991680583840, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -83,5 +87,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FastBullet Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8822582196697773194, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7268f50ed7faad34d88b122bf43632f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ad6ae8aa8a689408b2048427f2578a, type: 3}

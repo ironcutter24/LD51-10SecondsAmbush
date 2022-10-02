@@ -16,5 +16,5 @@ public class RoundData_SO : SerializedScriptableObject
         public BulletType bulletType;
     }
 
-    public enum BulletType { Normal, Fast, Slow, Explosive };
+    public enum BulletType { Normal, Fast, Slow, Sniper, Explosive };
 }

@@ -1535,7 +1535,6 @@ GameObject:
   - component: {fileID: 281971793}
   - component: {fileID: 281971792}
   - component: {fileID: 281971791}
-  - component: {fileID: 281971790}
   m_Layer: 11
   m_Name: Static Sprite
   m_TagString: Untagged
@@ -1543,27 +1542,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &281971790
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281971789}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &281971791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5473,7 +5451,6 @@ GameObject:
   - component: {fileID: 1282932941}
   - component: {fileID: 1282932940}
   - component: {fileID: 1282932939}
-  - component: {fileID: 1282932938}
   m_Layer: 11
   m_Name: Static Sprite (1)
   m_TagString: Untagged
@@ -5481,27 +5458,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &1282932938
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282932937}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1282932939
 BoxCollider2D:
   m_ObjectHideFlags: 0
