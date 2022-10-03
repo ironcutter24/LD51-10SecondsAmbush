@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Utility.Patterns;
+using System.Runtime.CompilerServices;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -47,41 +48,13 @@ public class GameManager : Singleton<GameManager>
             Application.Quit();
     }
 
+    #region Counter
+
     void StartCounter()
     {
         if (counterHandle != null)
             StopCoroutine(counterHandle);
         counterHandle = StartCoroutine(_Counter());
-    }
-
-    public void SetGameOver()
-    {
-        StartCoroutine(_GameOver());
-    }
-
-    IEnumerator _IntroScene()
-    {
-        CharacterController.Instance.SetLockControls(true);
-        CharacterController.Instance.ShowHUD(false);
-        HUDPanelUI.SetActive(false);
-        dialoguePanelUI.SetActive(false);
-        pressKeyText.SetActive(false);
-        yield return new WaitForSeconds(1f);
-
-        CharacterController.Instance.GoTo(playerStart, SetFlag);
-        yield return new WaitUntil(() => GetFlag());
-
-        InvisibleWalls.Instance.SetWalls(true);
-        yield return new WaitForSeconds(1f);
-
-        yield return StartCoroutine(_DisplayText("Damn, you are trapped by stop signs...<br>This must be an ambush!"));
-        yield return StartCoroutine(_DisplayText("I'd like to help, but I really have to...<br>ehm...<br>do laundry..."));
-        yield return StartCoroutine(_DisplayText("Good luck!"));
-
-        CharacterController.Instance.SetLockControls(false);
-
-        HUDPanelUI.SetActive(true);
-        StartCounter();
     }
 
     int count;
@@ -114,7 +87,16 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    IEnumerator _GameOver()
+    #endregion
+
+    #region GameOver
+
+    public void SetGameOver(bool isWinner = false)
+    {
+        StartCoroutine(_GameOver(isWinner));
+    }
+
+    IEnumerator _GameOver(bool isWinner)
     {
         isGameOver = true;
         OnCounterExpired();
@@ -122,15 +104,23 @@ public class GameManager : Singleton<GameManager>
         HUDPanelUI.SetActive(false);
         CharacterController.Instance.ShowHUD(false);
 
-        // Save score
+        round--;
+        resume.text = "You survived<br>" + (round) + " round" + (round == 1 ? "" : "s") + "!";
 
+        if (isWinner)
+        {
+            yield return StartCoroutine(_EndingScene());
+
+            resume.text += "<br>And finished the game!";
+            //gameOverUI.color = 
+        }
+        else
+        {
+            //gameOverUI.color = 
+        }
 
         restartText.SetActive(false);
         gameOverUI.gameObject.SetActive(true);
-        //gameOverUI.color = 
-
-        round--;
-        resume.text = "You survived<br>" + (round) + " round" + (round == 1 ? "" : "s") + "!";
 
         yield return new WaitForSeconds(2f);
 
@@ -166,6 +156,59 @@ public class GameManager : Singleton<GameManager>
         yield break;
     }
 
+    #endregion
+
+    #region Cutscenes
+
+    IEnumerator _IntroScene()
+    {
+        CharacterController.Instance.SetLockControls(true);
+        CharacterController.Instance.ShowHUD(false);
+        HUDPanelUI.SetActive(false);
+        dialoguePanelUI.SetActive(false);
+        pressKeyText.SetActive(false);
+        yield return new WaitForSeconds(1f);
+
+        CharacterController.Instance.GoTo(playerStart, SetFlag);
+        yield return new WaitUntil(() => GetFlag());
+
+        InvisibleWalls.Instance.SetWalls(true);
+        yield return new WaitForSeconds(1f);
+
+        yield return StartCoroutine(_DisplayText("Damn, you are trapped by stop signs...<br>This must be an ambush!"));
+        yield return StartCoroutine(_DisplayText("I'd like to help, but I really have to...<br>ehm...<br>do laundry..."));
+        yield return StartCoroutine(_DisplayText("Good luck!"));
+
+        CharacterController.Instance.SetLockControls(false);
+
+        HUDPanelUI.SetActive(true);
+        StartCounter();
+    }
+
+    IEnumerator _EndingScene()
+    {
+        CharacterController.Instance.SetLockControls(true);
+        CharacterController.Instance.ShowHUD(false);
+        HUDPanelUI.SetActive(false);
+        dialoguePanelUI.SetActive(false);
+        pressKeyText.SetActive(false);
+        yield return new WaitForSeconds(1f);
+
+        CharacterController.Instance.GoTo(playerStart, SetFlag);
+        yield return new WaitUntil(() => GetFlag());
+
+        InvisibleWalls.Instance.SetWalls(false);
+        yield return new WaitForSeconds(1f);
+
+        yield return StartCoroutine(_DisplayText("Hey, I'm back!"));
+        yield return StartCoroutine(_DisplayText("See, you did pretty well on your own.<br>No need for me here."));
+        yield return StartCoroutine(_DisplayText("Let's go buddy!"));
+
+        CharacterController.Instance.GoTo(new Vector3(0f, 20f, 0f), SetFlag);
+    }
+
+
+
     IEnumerator _DisplayText(string text)
     {
         dialoguePanelUI.SetActive(true);
@@ -196,6 +239,8 @@ public class GameManager : Singleton<GameManager>
         pressKeyText.SetActive(false);
         dialoguePanelUI.SetActive(false);
     }
+
+    #endregion
 
     #region Flags
 

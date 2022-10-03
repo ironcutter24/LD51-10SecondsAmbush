@@ -33,9 +33,14 @@ public class EnemySpawner : MonoBehaviour
     void StartRound(int round)
     {
         if (round <= roundData.Count)
+        {
             StartCoroutine(_SpawnRoutine(round));
+        }
         else
-            Debug.LogError("Round data not defined!");
+        {
+            //Debug.LogError("Round data not defined!");
+            GameManager.Instance.SetGameOver(true);
+        }
     }
 
     IEnumerator _SpawnRoutine(int round)
