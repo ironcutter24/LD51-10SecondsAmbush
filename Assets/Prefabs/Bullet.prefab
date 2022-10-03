@@ -374,7 +374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6728496453349233946}
-  col: {fileID: 6708245548264154042}
+  physicsCol: {fileID: 6708245548264154042}
+  hitBoxCol: {fileID: 6838374264501684507}
   bulletGfx: {fileID: 217701815212876236}
   shadowGfx: {fileID: 7542070513883635251}
   moveSpeed: 12

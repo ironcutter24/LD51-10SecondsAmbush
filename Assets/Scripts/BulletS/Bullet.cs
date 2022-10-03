@@ -6,7 +6,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] Collider2D col;
+    [SerializeField] Collider2D physicsCol;
+    [SerializeField] Collider2D hitBoxCol;
     [SerializeField] Transform bulletGfx;
     [SerializeField] Transform shadowGfx;
     [SerializeField] float moveSpeed;
@@ -23,7 +24,7 @@ public class Bullet : MonoBehaviour
 
     void DestroyBullet()
     {
-        col.enabled = false;
+        hitBoxCol.enabled = false;
         rb.velocity = Vector3.zero;
         StartCoroutine(_DestroyBullet());
     }
@@ -44,14 +45,6 @@ public class Bullet : MonoBehaviour
 
     public void EnableCollider()
     {
-        col.enabled = true;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Walls"))
-        {
-
-        }
+        physicsCol.enabled = true;
     }
 }

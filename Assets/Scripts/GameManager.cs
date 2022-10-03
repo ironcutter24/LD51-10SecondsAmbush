@@ -11,6 +11,8 @@ public class GameManager : Singleton<GameManager>
     public static event Action<int> OnRoundPassed = (x) => { };
     public int CurrentRound { get => round; }
 
+    Vector3 playerStart = Vector3.zero;
+    
     [SerializeField] TMPro.TextMeshProUGUI countUI;
     [SerializeField] TMPro.TextMeshProUGUI roundUI;
     [Space]
@@ -21,7 +23,8 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        StartCoroutine(_IntroScene());
+        //StartCoroutine(_IntroScene());
+        StartCoroutine(_Counter());
     }
 
     void Update()
@@ -38,13 +41,15 @@ public class GameManager : Singleton<GameManager>
         pressKeyText.SetActive(false);
         yield return new WaitForSeconds(1f);
 
-        CharacterController.Instance.GoTo(Vector3.zero, SetFlag);
+        CharacterController.Instance.GoTo(playerStart, SetFlag);
         yield return new WaitUntil(() => GetFlag());
 
         InvisibleWalls.Instance.SetWalls(true);
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(_DisplayText("Damn, the path is blocked by stop signs...<br>This must be an ambush!"));
+        yield return StartCoroutine(_DisplayText("Damn, you are trapped by stop signs...<br>This must be an ambush!"));
+        yield return StartCoroutine(_DisplayText("I'd like to help, but I really have to...<br>ehm...<br>do laundry..."));
+        yield return StartCoroutine(_DisplayText("Good luck!"));
 
         CharacterController.Instance.SetLockControls(false);
 
@@ -56,6 +61,8 @@ public class GameManager : Singleton<GameManager>
     int round = 0;
     IEnumerator _Counter()
     {
+        CharacterController.Instance.transform.position = playerStart;
+
         while (gameObject != null)
         {
             round++;
@@ -103,6 +110,7 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitUntil(() => Input.anyKeyDown);
 
         myTween.Kill();
+        pressKeyText.SetActive(false);
         dialoguePanelUI.SetActive(false);
     }
 

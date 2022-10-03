@@ -13,6 +13,7 @@ public class HitBox : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player hit");
+            collision.GetComponent<PlayerHUD>().Hit();
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Walls"))
