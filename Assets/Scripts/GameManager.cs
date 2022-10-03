@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using Utility.Patterns;
 
 public class GameManager : Singleton<GameManager>
@@ -16,20 +18,27 @@ public class GameManager : Singleton<GameManager>
 
     Vector3 playerStart = Vector3.zero;
 
-    [SerializeField] TMPro.TextMeshProUGUI countUI;
-    [SerializeField] TMPro.TextMeshProUGUI roundUI;
-    [Space]
+    [Header("HUD")]
     [SerializeField] GameObject HUDPanelUI;
+    [SerializeField] TextMeshProUGUI countUI;
+    [SerializeField] TextMeshProUGUI roundUI;
+    [Space]
+    [Header("Game Over")]
+    [SerializeField] Image gameOverUI;
+    [SerializeField] TextMeshProUGUI resume;
+    [SerializeField] GameObject restartText;
+    [Space]
+    [Header("Dialogue")]
     [SerializeField] GameObject dialoguePanelUI;
-    [SerializeField] TMPro.TextMeshProUGUI dialogue;
+    [SerializeField] TextMeshProUGUI dialogue;
     [SerializeField] GameObject pressKeyText;
 
     Coroutine counterHandle;
 
     void Start()
     {
-        //StartCoroutine(_IntroScene());
-        StartCounter();
+        StartCoroutine(_IntroScene());
+        //StartCounter();
     }
 
     void Update()
@@ -45,7 +54,7 @@ public class GameManager : Singleton<GameManager>
         counterHandle = StartCoroutine(_Counter());
     }
 
-    public void GameOver()
+    public void SetGameOver()
     {
         StartCoroutine(_GameOver());
     }
@@ -109,17 +118,32 @@ public class GameManager : Singleton<GameManager>
         isGameOver = true;
         OnCounterExpired();
 
-        //StopCoroutine(counterHandle);
         HUDPanelUI.SetActive(false);
 
         // Save score
 
 
+        restartText.SetActive(false);
+        gameOverUI.gameObject.SetActive(true);
+        //gameOverUI.color = 
 
-        // Show stats
+        round--;
+        resume.text = "You survived<br>" + (round) + " round" + (round == 1 ? "" : "s") + "!";
 
         yield return new WaitForSeconds(2f);
+
+        restartText.SetActive(true);
+        restartText.transform.localScale = Vector3.one;
+
+        Tween myTween = restartText.transform.DOScale(Vector3.one * 1.1f, .8f)
+            .SetLoops(-1, LoopType.Yoyo).SetAutoKill(false);
+
         yield return new WaitUntil(() => Input.anyKeyDown);
+
+        myTween.Kill();
+
+        restartText.SetActive(false);
+        gameOverUI.gameObject.SetActive(false);
 
         StartCoroutine(_ResetGame());
     }
@@ -151,6 +175,7 @@ public class GameManager : Singleton<GameManager>
                 i += 3;
             }
             dialogue.text = text.Substring(0, i + 1);
+            AudioManager.Play(AudioManager.SFX.textRollout, .1f);
             yield return new WaitForSeconds(.05f);
         }
 

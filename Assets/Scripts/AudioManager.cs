@@ -7,35 +7,23 @@ public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] AudioSource sourceMusic;
     [SerializeField] AudioSource sourceFX;
-    [SerializeField] AudioSource sourceUI;
     [Space]
-    [SerializeField] MusicAudio Music = new MusicAudio();
-    [SerializeField] FXAudio FX = new FXAudio();
-    [SerializeField] UIAudio UI = new UIAudio();
+    [SerializeField] AudioClip battleLoop;
+    [SerializeField] FXAudio sfx = new FXAudio();
+    public static FXAudio SFX { get => _instance.sfx; }
 
 
-    [System.Serializable]
-    public class MusicAudio : AudioCategory
+    public static void Play(AudioClip clip, float volume = 1f)
     {
-        public AudioClip forestAmbience;
-        public AudioClip battleLoop;
+        _instance.sourceFX.PlayOneShot(clip, volume);
     }
 
     [System.Serializable]
-    public class FXAudio : AudioCategory
+    public class FXAudio
     {
         public AudioClip playerHit;
-    }
+        public AudioClip shootBullet;
 
-    [System.Serializable]
-    public class UIAudio : AudioCategory
-    {
         public AudioClip textRollout;
-    }
-
-    [System.Serializable]
-    public class AudioCategory
-    {
-
     }
 }

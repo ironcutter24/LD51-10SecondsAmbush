@@ -39,30 +39,23 @@ public class PlayerHUD : MonoBehaviour
     {
         Health--;
 
+        AudioManager.Play(AudioManager.SFX.playerHit);
+        Camera.main.DOShakePosition(.1f, .2f);
+
         if (health <= 0)
         {
             Debug.Log("You died");
             playerMat.SetColor("_Color", Color.red);
-
             playerMat.DOFloat(.5f, "_HitEffectBlend", .1f)
                 .OnComplete(() => playerMat.DOFloat(0f, "_HitEffectBlend", .1f));
 
-            //Time.timeScale = .4f;
-            //DOTween.To(() => Time.timeScale, x => Time.timeScale = x, Time.timeScale, 2f)
-            //    .SetUpdate(true)
-            //    .OnComplete(() => Time.timeScale = 1f);
-
             CharacterController.Instance.SetDeath(true);
-            Camera.main.DOShakePosition(.1f, .2f);
-
-            GameManager.Instance.GameOver();
+            GameManager.Instance.SetGameOver();
         }
         else
         {
             playerMat.DOFloat(1f, "_HitEffectBlend", .1f)
                 .OnComplete(() => playerMat.DOFloat(0f, "_HitEffectBlend", .1f));
-
-            Camera.main.DOShakePosition(.1f, .2f);
         }
     }
 
