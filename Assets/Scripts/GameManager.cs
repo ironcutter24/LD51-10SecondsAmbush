@@ -38,8 +38,8 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        //StartCoroutine(_IntroScene());
-        StartCounter();
+        StartCoroutine(_IntroScene());
+        //StartCounter();
     }
 
     void Update()
@@ -111,12 +111,12 @@ public class GameManager : Singleton<GameManager>
         {
             yield return StartCoroutine(_EndingScene());
 
-            resume.text += "<br>And finished the game!";
-            //gameOverUI.color = 
+            resume.text = "You survived!";
+            gameOverUI.color = new Color(0.2941177f, 0.6392157f, 0.8745099f, .4f);
         }
         else
         {
-            //gameOverUI.color = 
+            gameOverUI.color = new Color(1f, 0f, 0f, .2f);
         }
 
         restartText.SetActive(false);
@@ -200,14 +200,12 @@ public class GameManager : Singleton<GameManager>
         InvisibleWalls.Instance.SetWalls(false);
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(_DisplayText("Hey, I'm back!"));
-        yield return StartCoroutine(_DisplayText("See, you did pretty well on your own.<br>No need for me here."));
+        yield return StartCoroutine(_DisplayText("Hey, I'm done with laundry!"));
+        yield return StartCoroutine(_DisplayText("Also I took down the fruit bandits,<br>ninja style!"));
         yield return StartCoroutine(_DisplayText("Let's go buddy!"));
 
         CharacterController.Instance.GoTo(new Vector3(0f, 20f, 0f), SetFlag);
     }
-
-
 
     IEnumerator _DisplayText(string text)
     {

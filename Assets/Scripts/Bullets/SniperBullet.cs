@@ -5,13 +5,12 @@ using UnityEngine;
 public class SniperBullet : MonoBehaviour
 {
     int bounces = 0;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         bounces++;
         //Debug.Log(bounces);
 
-        if (bounces > 3)
+        if (bounces > 2)
             Destroy(gameObject);
     }
 }

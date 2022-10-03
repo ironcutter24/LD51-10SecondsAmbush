@@ -24,15 +24,15 @@ MonoBehaviour:
   attackList:
   - waitTime: 1
     bulletType: 0
-  - waitTime: 0
+  - waitTime: 0.2
     bulletType: 0
-  - waitTime: 0
-    bulletType: 0
-  - waitTime: 1
-    bulletType: 0
-  - waitTime: 0
+  - waitTime: 0.2
     bulletType: 0
   - waitTime: 1
+    bulletType: 2
+  - waitTime: 1
+    bulletType: 2
+  - waitTime: 1
     bulletType: 0
-  - waitTime: 0
+  - waitTime: 0.2
     bulletType: 0

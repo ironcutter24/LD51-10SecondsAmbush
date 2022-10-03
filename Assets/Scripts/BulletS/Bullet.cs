@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] Transform shadowGfx;
     [SerializeField] float moveSpeed;
 
+    public Vector2 Velocity { get => rb.velocity; }
+
     private void Start()
     {
         GameManager.OnCounterExpired += DestroyBullet;
