@@ -104,6 +104,8 @@ public class GameManager : Singleton<GameManager>
         HUDPanelUI.SetActive(false);
         CharacterController.Instance.ShowHUD(false);
 
+        AudioManager.Instance.StopMusic();
+
         round--;
         resume.text = "You survived<br>" + (round) + " round" + (round == 1 ? "" : "s") + "!";
 
@@ -145,6 +147,8 @@ public class GameManager : Singleton<GameManager>
         isGameOver = false;
         HUDPanelUI.SetActive(true);
 
+        AudioManager.Instance.PlayMusic();
+
         CharacterController.Instance.transform.position = playerStart;
         CharacterController.Instance.SetDeath(false);
         CharacterController.Instance.ShowHUD(true);
@@ -179,10 +183,10 @@ public class GameManager : Singleton<GameManager>
         yield return StartCoroutine(_DisplayText("I'd like to help, but I really have to...<br>ehm...<br>do laundry..."));
         yield return StartCoroutine(_DisplayText("Good luck!"));
 
+        AudioManager.Instance.PlayMusic();
         CharacterController.Instance.SetLockControls(false);
 
-        HUDPanelUI.SetActive(true);
-        StartCounter();
+        StartCoroutine(_ResetGame());
     }
 
     IEnumerator _EndingScene()
@@ -219,7 +223,7 @@ public class GameManager : Singleton<GameManager>
                 i += 3;
             }
             dialogue.text = text.Substring(0, i + 1);
-            AudioManager.Play(AudioManager.SFX.textRollout, .1f);
+            AudioManager.Play(AudioManager.SFX.textRollout);
             yield return new WaitForSeconds(.05f);
         }
 

@@ -1162,7 +1162,7 @@ GameObject:
   - component: {fileID: 566667055821991098}
   - component: {fileID: 5981470567180291786}
   m_Layer: 0
-  m_Name: SourceUI
+  m_Name: SourceB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 7448245787339937337}
   - component: {fileID: 9140503077066278285}
   m_Layer: 0
-  m_Name: SourceMusic
+  m_Name: SourceA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1309,7 +1309,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8571920004218952268}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &9140503077066278285
 AudioSource:
@@ -1705,8 +1705,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6212278123253741285}
-  - {fileID: 7448245787339937337}
   - {fileID: 7339092595639319883}
+  - {fileID: 7448245787339937337}
   - {fileID: 566667055821991098}
   m_Father: {fileID: 6490667489936997434}
   m_RootOrder: 0
@@ -1723,13 +1723,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e50ca143482004f8b39535d2fe5669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceMusic: {fileID: 9140503077066278285}
+  sourceA: {fileID: 9140503077066278285}
+  sourceB: {fileID: 5981470567180291786}
   sourceFX: {fileID: 2740809188032739721}
-  battleLoop: {fileID: 0}
+  music_intro: {fileID: 8300000, guid: 2dd5dd875f6ea4b489548ca41bab70db, type: 3}
+  music_loop: {fileID: 8300000, guid: 07a9edad1f804de43b02a525db85fb4e, type: 3}
   sfx:
     playerHit: {fileID: 8300000, guid: 3a0ae293ad1c63745bd72b2615d06a60, type: 3}
     shootBullet: {fileID: 8300000, guid: 95dcd9d38f2225b46ab48951d4ca31c4, type: 3}
-    textRollout: {fileID: 8300000, guid: 605f77bda01ef8f41baf638399841713, type: 3}
+    textRollout: {fileID: 8300000, guid: d7dcd6a6e08a4344d809b680729a99ca, type: 3}
 --- !u!1 &5579543586291572377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,7 +1840,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8571920004218952268}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2740809188032739721
 AudioSource:
