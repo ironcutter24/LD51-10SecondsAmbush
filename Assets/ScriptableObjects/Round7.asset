@@ -21,4 +21,24 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  attackList: []
+  attackList:
+  - waitTime: 0
+    bulletType: 2
+  - waitTime: 0.2
+    bulletType: 2
+  - waitTime: 1.2
+    bulletType: 3
+  - waitTime: 0.6
+    bulletType: 0
+  - waitTime: 1
+    bulletType: 3
+  - waitTime: 0.6
+    bulletType: 3
+  - waitTime: 0.2
+    bulletType: 4
+  - waitTime: 0.3
+    bulletType: 1
+  - waitTime: 1
+    bulletType: 2
+  - waitTime: 0.2
+    bulletType: 1
