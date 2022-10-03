@@ -11,8 +11,11 @@ public class GameManager : Singleton<GameManager>
     public static event Action<int> OnRoundPassed = (x) => { };
     public int CurrentRound { get => round; }
 
+    private bool isGameOver = false;
+    public bool IsGameOver { get => isGameOver; }
+
     Vector3 playerStart = Vector3.zero;
-    
+
     [SerializeField] TMPro.TextMeshProUGUI countUI;
     [SerializeField] TMPro.TextMeshProUGUI roundUI;
     [Space]
@@ -21,16 +24,30 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] TMPro.TextMeshProUGUI dialogue;
     [SerializeField] GameObject pressKeyText;
 
+    Coroutine counterHandle;
+
     void Start()
     {
         //StartCoroutine(_IntroScene());
-        StartCoroutine(_Counter());
+        StartCounter();
     }
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
             Application.Quit();
+    }
+
+    void StartCounter()
+    {
+        if (counterHandle != null)
+            StopCoroutine(counterHandle);
+        counterHandle = StartCoroutine(_Counter());
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(_GameOver());
     }
 
     IEnumerator _IntroScene()
@@ -54,7 +71,7 @@ public class GameManager : Singleton<GameManager>
         CharacterController.Instance.SetLockControls(false);
 
         HUDPanelUI.SetActive(true);
-        StartCoroutine(_Counter());
+        StartCounter();
     }
 
     int count;
@@ -80,8 +97,46 @@ public class GameManager : Singleton<GameManager>
                 countUI.text = count.ToString();
             }
 
+            if (isGameOver)
+                yield break;
+
             OnCounterExpired();
         }
+    }
+
+    IEnumerator _GameOver()
+    {
+        isGameOver = true;
+        OnCounterExpired();
+
+        //StopCoroutine(counterHandle);
+        HUDPanelUI.SetActive(false);
+
+        // Save score
+
+
+
+        // Show stats
+
+        yield return new WaitForSeconds(2f);
+        yield return new WaitUntil(() => Input.anyKeyDown);
+
+        StartCoroutine(_ResetGame());
+    }
+
+    IEnumerator _ResetGame()
+    {
+        isGameOver = false;
+        HUDPanelUI.SetActive(true);
+
+        CharacterController.Instance.transform.position = playerStart;
+        CharacterController.Instance.SetDeath(false);
+
+        round = 0;
+        count = 0;
+        StartCounter();
+
+        yield break;
     }
 
     IEnumerator _DisplayText(string text)

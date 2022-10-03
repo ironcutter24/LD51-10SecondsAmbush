@@ -9,6 +9,8 @@ public class CharacterController : Singleton<CharacterController>
 {
     [SerializeField] Animator anim;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Collider2D physicCol;
+    [SerializeField] PlayerHUD playerHUD;
     [SerializeField] float moveSpeed = 20f;
 
     Vector2 moveDirection = Vector2.zero;
@@ -47,12 +49,28 @@ public class CharacterController : Singleton<CharacterController>
             );
     }
 
+    public void SetDeath(bool state)
+    {
+        SetLockControls(state);
+        physicCol.enabled = !state;
+        anim.SetBool("isDead", state);
+
+        if (!state)
+        {
+            playerHUD.RestoreHearts();
+            playerHUD.RestoreMatValues();
+        }
+    }
+
     public void SetLockControls(bool state)
     {
         lockControls = state;
     }
 
+    #region Cutscenes animation
+
     bool isAnimated = false;
+
     public void GoTo(Vector3 target, Action callback)
     {
         isAnimated = true;
@@ -69,6 +87,8 @@ public class CharacterController : Singleton<CharacterController>
                 callback();
             });
     }
+
+    #endregion
 
     void SetLookDirection(Vector2 dir)
     {

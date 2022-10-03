@@ -26,17 +26,36 @@ public class PlayerHUD : MonoBehaviour
 
     private void Start()
     {
-        playerMat.SetFloat("_HitEffectBlend", 0f);
+        RestoreMatValues();
         RestoreHearts();
+    }
+
+    private void OnDestroy()
+    {
+        RestoreMatValues();
     }
 
     public void Hit()
     {
         Health--;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Debug.Log("You died");
+            playerMat.SetColor("_Color", Color.red);
+
+            playerMat.DOFloat(.5f, "_HitEffectBlend", .1f)
+                .OnComplete(() => playerMat.DOFloat(0f, "_HitEffectBlend", .1f));
+
+            //Time.timeScale = .4f;
+            //DOTween.To(() => Time.timeScale, x => Time.timeScale = x, Time.timeScale, 2f)
+            //    .SetUpdate(true)
+            //    .OnComplete(() => Time.timeScale = 1f);
+
+            CharacterController.Instance.SetDeath(true);
+            Camera.main.DOShakePosition(.1f, .2f);
+
+            GameManager.Instance.GameOver();
         }
         else
         {
@@ -45,6 +64,12 @@ public class PlayerHUD : MonoBehaviour
 
             Camera.main.DOShakePosition(.1f, .2f);
         }
+    }
+
+    public void RestoreMatValues()
+    {
+        playerMat.SetColor("_Color", Color.white);
+        playerMat.SetFloat("_HitEffectBlend", 0f);
     }
 
     public void RestoreHearts()

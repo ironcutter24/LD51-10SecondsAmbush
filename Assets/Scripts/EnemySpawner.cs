@@ -15,12 +15,12 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
-        GameManager.OnRoundPassed += StartNextRound;
+        GameManager.OnRoundPassed += StartRound;
     }
 
     private void OnDestroy()
     {
-        GameManager.OnRoundPassed -= StartNextRound;
+        GameManager.OnRoundPassed -= StartRound;
     }
 
 #if UNITY_EDITOR
@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     }
 #endif
 
-    void StartNextRound(int round)
+    void StartRound(int round)
     {
         if (round <= roundData.Count)
             StartCoroutine(_SpawnRoutine(round));
@@ -45,6 +45,9 @@ public class EnemySpawner : MonoBehaviour
         foreach (var atk in attacks)
         {
             yield return new WaitForSeconds(atk.waitTime);
+
+            if (GameManager.Instance.IsGameOver)
+                yield break;
 
             float rnd = Random.Range(0f, 1f);
 
