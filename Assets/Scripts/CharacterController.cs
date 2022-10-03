@@ -67,6 +67,11 @@ public class CharacterController : Singleton<CharacterController>
         lockControls = state;
     }
 
+    public void ShowHUD(bool state)
+    {
+        playerHUD.SetVisible(state);
+    }
+
     #region Cutscenes animation
 
     bool isAnimated = false;

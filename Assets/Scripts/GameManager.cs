@@ -37,8 +37,8 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        StartCoroutine(_IntroScene());
-        //StartCounter();
+        //StartCoroutine(_IntroScene());
+        StartCounter();
     }
 
     void Update()
@@ -62,6 +62,7 @@ public class GameManager : Singleton<GameManager>
     IEnumerator _IntroScene()
     {
         CharacterController.Instance.SetLockControls(true);
+        CharacterController.Instance.ShowHUD(false);
         HUDPanelUI.SetActive(false);
         dialoguePanelUI.SetActive(false);
         pressKeyText.SetActive(false);
@@ -119,6 +120,7 @@ public class GameManager : Singleton<GameManager>
         OnCounterExpired();
 
         HUDPanelUI.SetActive(false);
+        CharacterController.Instance.ShowHUD(false);
 
         // Save score
 
@@ -155,6 +157,7 @@ public class GameManager : Singleton<GameManager>
 
         CharacterController.Instance.transform.position = playerStart;
         CharacterController.Instance.SetDeath(false);
+        CharacterController.Instance.ShowHUD(true);
 
         round = 0;
         count = 0;

@@ -475,7 +475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fa48d178cf43ffe42b545c9531d9fd68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aabd332ceaaea2444ae2af28380b9796, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fa48d178cf43ffe42b545c9531d9fd68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aabd332ceaaea2444ae2af28380b9796, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -708,6 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMat: {fileID: 2100000, guid: 44c7a1739a3727d4f9ba36a9cd9ee3c5, type: 2}
+  heartsHUD: {fileID: 5317901770533873328}
   hearts:
   - {fileID: 6044514422903016775}
   - {fileID: 3550746594779606213}
@@ -726,7 +727,7 @@ GameObject:
   - component: {fileID: 8098726522864872556}
   - component: {fileID: 1592408004841240529}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: HealthHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,7 +887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fa48d178cf43ffe42b545c9531d9fd68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aabd332ceaaea2444ae2af28380b9796, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1046,7 +1047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fa48d178cf43ffe42b545c9531d9fd68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aabd332ceaaea2444ae2af28380b9796, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

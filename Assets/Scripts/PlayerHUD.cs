@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] Material playerMat;
+    [SerializeField] GameObject heartsHUD;
     [SerializeField] List<GameObject> hearts = new List<GameObject>();
 
     const int maxHealth = 4;
@@ -57,6 +58,11 @@ public class PlayerHUD : MonoBehaviour
             playerMat.DOFloat(1f, "_HitEffectBlend", .1f)
                 .OnComplete(() => playerMat.DOFloat(0f, "_HitEffectBlend", .1f));
         }
+    }
+
+    public void SetVisible(bool state)
+    {
+        heartsHUD.SetActive(state);
     }
 
     public void RestoreMatValues()
