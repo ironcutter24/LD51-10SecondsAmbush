@@ -1,38 +1,30 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility.Patterns;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : Singleton<CharacterController>
 {
-    public static CharacterController Instance;
-
     [SerializeField] Animator anim;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] float moveSpeed = 20f;
 
     Vector2 moveDirection = Vector2.zero;
     Vector2 lookDirection = Vector2.right;
 
-    Rigidbody2D rb;
-
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    bool lockControls = false;
 
     void Update()
     {
+        if (lockControls || isAnimated) return;
+
         moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (!Mathf.Approximately(moveDirection.x, 0f))
         {
-            lookDirection = moveDirection.normalized;
-            FlipOnX(anim.gameObject.transform, lookDirection.x < 0f);
+            SetLookDirection(moveDirection);
         }
 
         anim.SetFloat("moveSpeed", moveDirection.magnitude);
@@ -40,6 +32,8 @@ public class CharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (lockControls || isAnimated) return;
+
         rb.MovePosition(rb.position + moveDirection.normalized * moveSpeed * Time.deltaTime);
     }
 
@@ -51,5 +45,34 @@ public class CharacterController : MonoBehaviour
             trs.transform.localScale.y,
             trs.transform.localScale.z
             );
+    }
+
+    public void SetLockControls(bool state)
+    {
+        lockControls = state;
+    }
+
+    bool isAnimated = false;
+    public void GoTo(Vector3 target, Action callback)
+    {
+        isAnimated = true;
+        Vector2 move = target - transform.position;
+        SetLookDirection(move);
+        anim.SetFloat("moveSpeed", moveSpeed);
+
+        transform.DOMove(target, move.magnitude / moveSpeed)
+            .SetEase(Ease.Linear)
+            .OnComplete(() =>
+            {
+                anim.SetFloat("moveSpeed", 0f);
+                isAnimated = false;
+                callback();
+            });
+    }
+
+    void SetLookDirection(Vector2 dir)
+    {
+        lookDirection = dir.normalized;
+        FlipOnX(anim.gameObject.transform, lookDirection.x < 0f);
     }
 }

@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2313381144272222114}
+  rb: {fileID: 5007275481067609799}
   moveSpeed: 8
 --- !u!1 &6286705552585200741
 GameObject:
