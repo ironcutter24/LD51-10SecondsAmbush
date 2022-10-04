@@ -4,6 +4,8 @@
 
 <img src="https://user-images.githubusercontent.com/33135141/193932976-71e2c3db-7f82-4f1a-acbe-bfcac9725087.png">
 
+Contains free asset from [Vector Forest Scenery](https://assetstore.unity.com/packages/2d/environments/vector-forest-scenery-209180) and [Flat Platformer Template](https://assetstore.unity.com/packages/2d/environments/flat-platformer-template-108101) packs
+  
 ### Controls:
 - WASD **>>** Move  
 - Esc **>>** Quit
