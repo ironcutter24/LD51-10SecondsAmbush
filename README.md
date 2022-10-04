@@ -1,8 +1,8 @@
 # LD51-10SecondsAmbush
 
-![Screenshot_4](https://user-images.githubusercontent.com/33135141/193932976-71e2c3db-7f82-4f1a-acbe-bfcac9725087.png)
+### Survive a bullet-hell ambush done in 10 seconds rounds and reunite with Your Horse!
 
-## Survive a bullet-hell ambush done in 10 seconds rounds and reunite with Your Horse!
+<img src="https://user-images.githubusercontent.com/33135141/193932976-71e2c3db-7f82-4f1a-acbe-bfcac9725087.png">
 
 ### Controls:
 - WASD **>>** Move  
