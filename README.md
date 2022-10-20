@@ -14,5 +14,6 @@ Contains free asset from [Vector Forest Scenery](https://assetstore.unity.com/pa
 - Play HTML5 version on [itch.io](https://ironcutter24.itch.io/10-seconds-ambush)
 - Download for Windows on [itch.io](https://ironcutter24.itch.io/10-seconds-ambush)
 - Vote on [ldjam.com](https://ldjam.com/events/ludum-dare/51/10-seconds-ambush)
+- Postmortem post on [ldjam.com](https://ldjam.com/events/ludum-dare/51/10-seconds-ambush/postmortem)
 
 ##### Game made in 72 hours for Ludum Dare 51
